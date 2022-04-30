@@ -20,8 +20,8 @@
       "accountablePerson" : "{{ .Site.Params.name }}",
       "copyrightHolder" : "{{ .Site.Params.name }}",
       "copyrightYear" : "{{ .Date.Format "2006" }}",
-      "datePublished": "{{ .Date }}",
-      "dateModified" : "{{ .Date }}",
+      "datePublished": "{{ .Date.Format "2006-01-02" }}",
+      "dateModified" : "{{ .Date.Format "2006-01-02" }}",
       "url" : "{{ .Permalink }}",
       "wordCount" : "{{ .WordCount }}",
       "keywords" : [{{ if isset .Params "keywords" }}{{ range .Params.keywords }}"{{ . }}", {{ end }}{{ end }}"Blog"]

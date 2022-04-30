@@ -5,13 +5,12 @@
   {{ range $icons }}
     {{ $icon := anchorize . }}
     {{ if isset $currentPage.Site.Params $icon }}
-      <a
-        title="{{ . }}"
-        href="{{ . }}"
-        target="_blank"
-        rel="me noopener"
+      <link
+        href="{{ index $currentPage.Site.Params $icon }}"
+        rel="me"
       >
-      </a>
+        <!-- <div class="social-icons__icon" style="background-image: url('{{print "svg/" $icon ".svg" | absURL}}')"></div> -->
+      </link>
     {{ end }}
   {{ end }}
 </div>

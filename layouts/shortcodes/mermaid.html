@@ -1,0 +1,13 @@
+<script type="text/javascript">
+  mermaid.initialize({
+      theme: 'dark',
+      themeCSS: '',
+      cloneCssStyles: false,
+      useMaxWidth: true,
+      htmlLabels: false,
+      flowchart: {
+              curve: 'basis'
+      }
+  });
+</script>
+<pre class="mermaid" align="{{ if .Get "align" }}{{ .Get "align" }}{{ else }}center{{ end }}">{{ safeHTML .Inner }}</pre>

@@ -1,4 +1,5 @@
 <nav class="nav" id="navigation">
+  {{ partial "title.html" .}}
   <ul class="nav__list">
     {{ $currentPage := . }}
     {{ range .Site.Menus.main }}

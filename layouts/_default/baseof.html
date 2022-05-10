@@ -56,27 +56,8 @@
     | safeHTML }} {{ end }} {{ block "links" . }} {{ end }} {{ partial
     "seo-schema.html" .}}
 
-    <!-- {{- if not .Site.IsServer -}} -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-10193PESL1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-10193PESL1');
-    </script>
-  {{- end -}} -->
-    <!-- <script>
-    var t = setInterval(function() {
-        if (window.goatcounter && window.goatcounter.visit_count) {
-            clearInterval(t)
-            window.goatcounter.visit_count({append: '#visitors'})
-        }
-    }, 100)
-  </script> -->
     <script
-      data-goatcounter="https://adityanaik.goatcounter.com/count"
+      data-goatcounter="{{ .Site.Params.goatcounter }}"
       async
       src="//gc.zgo.at/count.js"
     ></script>
@@ -92,13 +73,13 @@
     {{ end }}
     <link
       rel="webmention"
-      href="https://webmention.io/adityanaik.dev/webmention"
+      href="{{ .Site.Params.webmention }}"
     />
     <link rel="pingback" href="https://webmention.io/adityanaik.dev/xmlrpc" />
 
     <link rel="authorization_endpoint" href="https://indieauth.com/auth">
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-    <link rel="micropub" href="https://serverless-go-post.vercel.app/api/main.go">
+    <link rel="micropub" href="{{ .Site.Params.micropub}}">
 
   </head>
 

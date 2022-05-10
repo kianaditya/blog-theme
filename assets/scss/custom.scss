@@ -45,7 +45,6 @@ $blue: random(256)-1;
 }
 
 .footer {
-  width: 100%;
   text-align: center;
   font-size: 0.8rem;
   line-height: 2rem;
@@ -122,4 +121,11 @@ figure {
   max-width: calc(#{$postWidth} * 1.3);
   width: fit-content;
   min-width: $postWidth;
+}
+
+.index-type {
+  text-decoration: none;
+  color: #9b9b9b;
+  font-size: 0.8rem;
+  float: right;
 }

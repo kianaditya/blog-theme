@@ -2,10 +2,11 @@
   {{ partial "title.html" .}}
   <ul class="nav__list">
     {{ $currentPage := . }}
+    {{ $posts := .Site.RegularPages }}
     {{ range .Site.Menus.main }}
       <li>
         <a {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active"
-        {{end}} href="{{ .URL }}">{{ .Name }}</a>
+        {{end}} href="{{ .URL }}">{{ $postCount := len (where $posts "Type" .Identifier) }}{{ $postCount }} {{ .Name }}</a>
       </li>
     {{ end }}
   </ul>

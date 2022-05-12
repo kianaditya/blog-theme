@@ -1,24 +1,37 @@
 {{ define "styles" }}
-    {{ $.Scratch.Set "style_opts" (dict "src" "scss/pages/about.scss" "dest" "css/about.css") }}
+    {{ $.Scratch.Set "style_opts" (dict "src" "scss/pages/posts.scss" "dest" "css/posts.css") }}
 {{ end }}
 
 {{ define "main" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2 2006" }}
 
-<div class="splash-container">
-  <div class="splash">
+<div class="post-list__container">
+  <ul class="post-list">
+    {{ range .Site.RegularPages }}
+    <li class="post">
+      <div class="post__header">
+        <time class="post__date" datetime="{{ .Date }}"
+          >{{ .Date.Format $dateFormat }}
+          <a class="index-type" href="/{{.Type}}"> #{{humanize .Type}}</a>
+        </time>
 
-    <h1>{{ .Params.heading }}<span class="fancy">.</span></h1>
-    {{ if isset .Params "handle" }}
-    <span class="handle">@{{ .Params.handle }}</span>
+          {{ if .Title }}
+        <h2 class="post__title">
+          <a href="{{.RelPermalink}}">{{ .Title }}</a>
+        </h2>
+        {{ else }}
+        <h2 class="post__title">
+          <a href="{{.RelPermalink}}">{{ .Summary | truncate 120 }}...</a>
+        </h2>
+        {{ end }}
+        {{ partial "tags.html" .}}
+      </div>
+    </li>
     {{ end }}
-    <h2>
-      {{ .Params.subheading }}
-    </h2>
-    <!-- Replace MEEEEE -->
-
-    {{ partial "social-icons.html" .}}
-  </div>
+  </ul>
+  <!-- {{ partial "browse-by-tag.html" .}} -->
 </div>
+
 {{ partial "footer" . }}
 
 {{ end }}

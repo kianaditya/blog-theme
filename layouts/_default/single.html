@@ -11,7 +11,11 @@
         <div class='line-numbers'>
         <div class="post h-entry">
           <header class="post__header">
+            {{ if .Title}}
             <h1 id="post__title" class="p-name">{{.Title}}</h1>
+            {{ else }}
+              <h1 id="post__title" class="p-name">{{.Summary | truncate 120}}...</h1>
+            {{ end }}
             <a style="text-decoration: none" class="u-url" href="{{ .Permalink }}">
             {{ if .Date }}<time datetime="{{ .Date }}" class="post__date dt-published">Published on {{ .Date.Format $dateFormat }}</time> {{ end }}
             </a>
@@ -27,9 +31,11 @@
               {{ end }}
 
           </article>
-          {{ partial "coffee.html" .}}
-          {{ partial "tags.html" .}} {{ partial "post-pagination.html" .}}
-          {{ template "_internal/disqus.html" . }}
+          {{ if .Title}}
+            {{ partial "coffee.html" .}}
+            {{ partial "tags.html" .}} {{ partial "post-pagination.html" .}}
+            {{ template "_internal/disqus.html" . }}
+          {{ end }}
           <footer class="post__footer">
             {{ partial "social-icons.html" .}}
             <p>{{ replace .Site.Copyright "{year}" now.Year }}</p>

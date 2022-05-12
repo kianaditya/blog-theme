@@ -1,7 +1,7 @@
-  
+
 <!-- JSON-LD -->
 <script type="application/ld+json">
-  {{ if and (.IsPage) (eq .Section "blog") }}
+  {{ if and (.IsPage) (or (eq .Section "blog") (eq .Section "note")) }}
     {
       "@context" : "http://schema.org",
       "@type" : "BlogPosting",
@@ -27,9 +27,9 @@
       "keywords" : [{{ if isset .Params "keywords" }}{{ range .Params.keywords }}"{{ . }}", {{ end }}{{ end }}"Blog"]
     }
   {{ else }}
-    { 
-      "@context": "http://schema.org", 
-      "@type": "WebSite", 
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
       "url": "{{ .Permalink }}",
       "name": "{{ .Title }}",
       "author": {

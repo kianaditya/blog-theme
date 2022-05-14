@@ -48,7 +48,7 @@ $blue: random(256)-1;
   text-align: center;
   font-size: 0.8rem;
   line-height: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 3rem;
 }
 
 .splash-container {
@@ -128,4 +128,11 @@ figure {
   color: #9b9b9b;
   font-size: 0.8rem;
   float: right;
+}
+
+.list-paginator-container {
+  margin-left: 1660px;
+  position: absolute;
+  width: 60%;
+  text-align: center;
 }

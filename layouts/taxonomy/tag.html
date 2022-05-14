@@ -15,9 +15,15 @@
       <li class="post">
         <div class="post__header">
           <time class="post__date" datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>
-          <h2 class="post__title">
-            <a href="{{.RelPermalink}}">{{ .Title }}</a>
-          </h2>
+          {{ if .Title }}
+        <h2 class="post__title">
+          <a href="{{.RelPermalink}}">{{ .Title }}</a>
+        </h2>
+        {{ else }}
+        <div class="post__title">
+          <a href="{{.RelPermalink}}">{{ .Summary | truncate 120 }}...</a>
+        </div>
+        {{ end }}
         </div>
       </li>
       {{ end }}

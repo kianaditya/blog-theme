@@ -34,7 +34,9 @@
   </ul>
   {{ partial "browse-by-tag.html" .}}
 </div>
-{{ partial "list-pagination" . }}
+  {{ if gt .Paginator.TotalPages 1}}
+    {{ partial "list-pagination" . }}
+  {{end}}
 {{ end }}
 
 {{define "footer"}}

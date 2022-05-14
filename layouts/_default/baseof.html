@@ -9,7 +9,7 @@
     <meta name="language" content="en" />
     <meta
       name="description"
-      content="{{ if .IsHome}}{{ .Site.Params.Description }}{{ else }}{{.Page.Params.Description}}{{ end }}"
+      content="{{ if .IsHome}}{{ .Site.Params.Description }}{{ else if .Description }}{{.Page.Params.Description}}{{ else }}{{humanize .Slug}}{{ end }}"
     />
     <meta name="keywords" content="{{ delimit .Keywords " , " }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

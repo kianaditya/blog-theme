@@ -71,6 +71,16 @@ $tocBreakpoint: 1024px;
   padding-top: 3rem;
 }
 
+.note__footer {
+  width: 40%;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  justify-content: center;
+}
+
 .toc-container {
   position: sticky;
   align-self: start;

@@ -32,14 +32,19 @@
 
           </article>
           {{ if .Title}}
-            {{ partial "coffee.html" .}}
-            {{ partial "tags.html" .}} {{ partial "post-pagination.html" .}}
-            {{ template "_internal/disqus.html" . }}
+          {{ partial "coffee.html" .}}
+          {{ partial "tags.html" .}} {{ partial "post-pagination.html" .}}
+          {{ template "_internal/disqus.html" . }}
           {{ end }}
-          <footer class="post__footer">
-            {{ partial "social-icons.html" .}}
-            <p>{{ replace .Site.Copyright "{year}" now.Year }}</p>
-          </footer>
+          {{ if .Title}}
+            <footer class="post__footer">
+              {{ partial "footer" . }}
+            </footer>
+          {{ else }}
+            <footer class="note__footer">
+              {{ partial "footer" . }}
+            </footer>
+          {{ end }}
           </div>
         </div>
       </div>

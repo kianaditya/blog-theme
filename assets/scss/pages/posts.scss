@@ -1,5 +1,6 @@
 @import "../main";
 @import "../partials/post-list";
+@import "../custom";
 
 .tags__list {
   list-style: none;
@@ -54,4 +55,37 @@
 .post-list__container {
   display: flex;
   justify-content: space-between;
+}
+
+.list-pagination-container {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin-left: 12%;
+  font-size: medium;
+  text-decoration: none;
+}
+
+.page-link {
+  font-size: medium;
+  text-decoration: none;
+  color: $darkGrey;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+
+  &:hover {
+    color: $primary;
+    border-color: $primary;
+  }
+
+  &.selected {
+    color: $primary;
+    border-color: $primary;
+    text-decoration: underline;
+  }
+
+  &.number {
+    border: 1px solid $darkGrey;
+  }
 }

@@ -1,0 +1,27 @@
+<div class = "list-pagination-container">
+  <a class="page-link" href="{{$.Paginator.First.URL}}">
+      <span class="pagination__label" aria-hidden="true">&laquo;&laquo; First Page</span>
+  </a>
+
+  {{- $slots := 5 }}
+    {{- $start := math.Max 1 (sub $.Paginator.PageNumber (math.Floor (div $slots 2))) }}
+    {{- $end := math.Min $.Paginator.TotalPages (sub (add $start $slots) 1) }}
+    {{- if lt (add (sub $end $start) 1) $slots }}
+      {{- $start = math.Max 1 (add (sub $end $slots) 1) }}
+    {{- end }}
+
+    {{- range $k := seq $start $end }}
+      {{- if eq $.Paginator.PageNumber $k }}
+
+        <a aria-current="page" aria-label="Page {{ $k }}" class="page-link pagination__item active selected number" role="button">{{ $k }}</a>
+
+      {{- else }}
+        <a href="{{ (index $.Paginator.Pagers (sub $k 1)).URL }}" aria-label="Page {{ $k }}" class="page-link pagination__item active number" role="button">{{ $k }}</a>
+
+      {{- end }}
+    {{- end }}
+
+  <a class="page-link" href="{{$.Paginator.Last.URL}}">
+    <span class="pagination__label" aria-hidden="true">Last Page ({{ $.Paginator.TotalPages}}) &raquo;&raquo;</span>
+  </a>
+</div>

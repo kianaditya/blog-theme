@@ -3,11 +3,13 @@
 {{ end }}
 
 {{ define "main" }}
+{{ $paginator := .Paginate ( .Site.RegularPages ) }}
+
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2 2006" }}
 
 <div class="post-list__container">
   <ul class="post-list">
-    {{ range .Site.RegularPages }}
+    {{ range $paginator.Pages }}
     <li class="post">
       <div class="post__header">
         <time class="post__date" datetime="{{ .Date }}"
@@ -20,18 +22,23 @@
           <a href="{{.RelPermalink}}">{{ .Title }}</a>
         </h2>
         {{ else }}
-        <h2 class="post__title">
+        <div class="post__title">
           <a href="{{.RelPermalink}}">{{ .Summary | truncate 120 }}...</a>
-        </h2>
+        </div>
         {{ end }}
         {{ partial "tags.html" .}}
       </div>
     </li>
     {{ end }}
+
   </ul>
-  <!-- {{ partial "browse-by-tag.html" .}} -->
+  {{ partial "browse-by-tag.html" .}}
 </div>
+  {{ if gt .Paginator.TotalPages 1}}
+    {{ partial "list-pagination" . }}
+  {{end}}
+{{ end }}
 
-{{ partial "footer" . }}
-
+{{define "footer"}}
+  {{ partial "footer" . }}
 {{ end }}

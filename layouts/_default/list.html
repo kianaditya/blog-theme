@@ -22,7 +22,7 @@
         </h2>
         {{ else }}
         <div class="post__title">
-          <a href="{{.RelPermalink}}">{{ .Summary | truncate 240 }}...</a>
+          <a href="{{.RelPermalink}}">{{ .Summary | truncate 90 }}...</a>
         </div>
         {{ end }}
         {{ partial "tags.html" .}}

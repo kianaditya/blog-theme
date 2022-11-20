@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="{{ with .class }}{{ . }} {{ end }}icon" width="24" height="24">
+  <defs>
+    <style>.cls-1{fill:#201602}</style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="layer_1-2" data-name="layer 1">
+      <path class="cls-1" d="M47 48H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h46a1 1 0 0 1 1 1v46a1 1 0 0 1-1 1zM2 46h44V2H2z"/>
+      <path class="cls-1" d="M34 25h8v2h-8zM22 25h10v2H22zM31 30h7v2h-7zM22 30h7v2h-7zM36 35h6v2h-6zM22 35h12v2H22zM22 40h9v2h-9zM18 42H7a1 1 0 0 1-1-1V26a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1zM8 40h9V27H8zM41 22H7a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h34a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1zM8 20h32v-4H8zM4 4h2v2H4zM8 4h2v2H8zM12 4h2v2h-2zM1 8h46v2H1z"/>
+    </g>
+  </g>
+</svg>

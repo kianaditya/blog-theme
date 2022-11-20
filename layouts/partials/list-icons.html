@@ -1,0 +1,8 @@
+<div>
+  {{if(eq .Type "blog")}}
+  <a class="index-type" href="/{{.Type}}">{{ partial "svg/article.svg" }}</a>
+  {{end}}
+  {{if(eq .Type "note")}}
+  <a class="index-type" href="/{{.Type}}">{{ partial "svg/note.svg" }}</a>
+  {{end}}
+</div>

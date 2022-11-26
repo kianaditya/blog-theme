@@ -14,13 +14,13 @@
       <div class="post__header">
         <time class="post__date" datetime="{{ .Date }}"
           >{{ .Date.Format $dateFormat }}
-          <a class="index-type" href="/{{.Type}}"> #{{humanize .Type}}</a>
         </time>
+        {{ partial "list-icons.html" . }}
 
           {{ if .Title }}
-        <h2 class="post__title">
+        <div class="post__title">
           <a href="{{.RelPermalink}}">{{ .Title }}</a>
-        </h2>
+        </div>
         {{ else }}
         <div class="post__title">
           <a href="{{.RelPermalink}}">{{ .Summary | truncate 90 }}...</a>
@@ -33,7 +33,7 @@
 
   </ul>
   {{ partial "browse-by-tag.html" .}}
-  {{ partial "social-icons.html" .}}
+  <!-- {{ partial "social-icons.html" .}} -->
 </div>
   {{ if gt .Paginator.TotalPages 1}}
     {{ partial "list-pagination" . }}

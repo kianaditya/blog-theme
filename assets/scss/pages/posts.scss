@@ -2,6 +2,11 @@
 @import "../partials/post-list";
 @import "../custom";
 
+.page_layout {
+  display: flex;
+  justify-content: space-between;
+}
+
 .tags__list {
   list-style: none;
   margin: 0;
